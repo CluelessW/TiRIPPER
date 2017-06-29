@@ -1,6 +1,7 @@
 # TiRIPPER - a finely crafted ripper for Tidal for exceptional rips
 
 Released under [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+http://github.com/yyu88
 
 This software allows the user to produce exceptional album rips from the Tidal music database. Requires Tidal subscription access.
 
