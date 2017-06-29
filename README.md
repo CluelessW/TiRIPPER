@@ -2,7 +2,7 @@
 
 Released under [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
-https://github.com/yyu88/TiRIPPER
+Copyright 2017 Yongliang Yu krustysworld@gmail.com
 
 This software allows the user to produce exceptional album rips from the Tidal music database. Requires Tidal subscription access.
 
