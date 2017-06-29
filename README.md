@@ -28,6 +28,7 @@ This software allows the user to produce exceptional album rips from the Tidal m
 # Instructions -
 
 * Clone and cd into directory
+* `chmod +x tiripper.sh`
 * Replace "SESSIONKEYHERE" in Line 6 with Tidal session key
 * Run script
 * Find ID for desired album with reference from "http://tidal.com/us/store/album/ALBUMIDHERE"
