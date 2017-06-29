@@ -34,4 +34,4 @@ This software allows the user to produce exceptional album rips from the Tidal m
 * Enter album ID
 * Enjoy unfiltered aural music quality
 
-[b] THIS SOFTWARE IS MEANT AS AN ALTERNATIVE FOR PERSONAL OFFLINE LISTENING ONLY. USE AT YOUR OWN RESPONSIBILITY. [/b]
+** THIS SOFTWARE IS MEANT AS AN ALTERNATIVE FOR PERSONAL OFFLINE LISTENING ONLY. USE AT YOUR OWN RESPONSIBILITY. **
