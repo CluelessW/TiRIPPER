@@ -3,7 +3,7 @@
 
 
 
-tidalSession="X-Tidal-SessionId: SESSIONKEYHERE"
+#tidalSession="X-Tidal-SessionId: SESSIONKEYHERE"
 
 for var in "$@"
 do
