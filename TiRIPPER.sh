@@ -2,7 +2,7 @@
 #needs gsed, metaflac & ffmpeg (for flac encodes)
 
 
-#set -x
+
 tidalSession="X-Tidal-SessionId: SESSIONKEYHERE"
 
 for var in "$@"
