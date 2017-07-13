@@ -5,8 +5,13 @@
 #set -x
 tidalSession="X-Tidal-SessionId: SESSIONKEYHERE"
 
+for var in "$@"
+do
+albumID="$var"
+if [ -z "$albumID" ];then
 echo "-->album ID?"
 read albumID
+fi
 
 #superfluous crap probably
 #-------------------------
@@ -15,7 +20,7 @@ while [ "$nullCheck" == 0 ];do
 html=$(curl -s --http1.1 -H  "$tidalSession" -H "X-Tidal-Token: _DSTon1kC8pABnTw" -H "User-Agent: TIDAL/362 CFNetwork/711.4.6 Darwin/14.0.0" "http://api.tidalhifi.com/v1/albums/$albumID/tracks?countryCode=US&limit=9999&orderDirection=ASC" | cat )
 maxItems=$(jq -r '.totalNumberOfItems' <<< "$html")
 if [ "$maxItems" == "null" ]; then
-echo "Null error."
+echo "$albumID Null error."
 echo "-->album ID?"
 read albumID
 else
@@ -26,6 +31,13 @@ done
 
 
 echo "----Selected Album has $maxItems tracks."
+
+if [ -n "$1" ];then
+index=1
+avoid=1
+avoidInput=1
+delm4a=1
+else
 
 echo "-->index? (default 1)"
 read indexinput
@@ -50,6 +62,7 @@ else
 delm4a=0
 fi
 
+fi
 
 
 for (( i=0; i<maxItems; i++ ))
@@ -158,7 +171,7 @@ fi
 if [ "$delm4a" = 1 ] && [ "$skip" = 0 ];then
 year=$(jq -r ".items[$dindex].streamStartDate" <<< "$html" | cut -c1-4)
 artistName=$(jq -r ".items[$dindex].artist.name" <<< "$html")
-ffmpeg -loglevel fatal -y -i "${findex} - ${trackName[dindex]}.m4a" -metadata title="${trackName[dindex]}" -metadata album="$albumName" -metadata track="${trackNumber[dindex]}" -metadata artist="$artistName" -metadata year="$year" -f flac "${findex} - ${trackName[dindex]}.flac" < /dev/null
+ffmpeg -y -i "${findex} - ${trackName[dindex]}.m4a" -metadata title="${trackName[dindex]}" -metadata album="$albumName" -metadata track="${trackNumber[dindex]}" -metadata artist="$artistName" -metadata year="$year" -f flac "${findex} - ${trackName[dindex]}.flac" < /dev/null
 rm "${findex} - ${trackName[dindex]}.m4a"
 fi
 avoid=$((avoid+1))
@@ -188,4 +201,10 @@ echo "100% SUCCESSFULLY RIPPED."
 else
 echo "early termination or error -- check files"
 fi
+
+trackName=()
+trackNumber=()
+cd ..
+done
 exit
+
