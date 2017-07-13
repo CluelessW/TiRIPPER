@@ -34,7 +34,6 @@ This software allows the user to produce exceptional album rips from the Tidal m
 * Replace "SESSIONKEYHERE" in Line 6 with Tidal session key
 * Run script
 * Find ID for desired album with reference from "http://tidal.com/us/store/album/ALBUMIDHERE"
-* Enter album ID
-* Enjoy unfiltered aural music quality
+* Enter album ID ( allows for multiple album rips `./tiripper.sh albumid1 albumid2 albumid3 .. albumid99`
 
 ** THIS SOFTWARE IS MEANT AS AN ALTERNATIVE FOR PERSONAL OFFLINE LISTENING ONLY. USE AT YOUR OWN RESPONSIBILITY. **
