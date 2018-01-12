@@ -97,9 +97,8 @@ trackNumber+=("$name");
 done < <(jq -r '.items[].trackNumber' <<< "$html")
 
 ###split singles in different folder
-albumName=$(jq -r '.items[0].album.title' <<< "$html")
+albumName=$(gsed -e 's@/@,@g' <<< $(jq -r '.items[0].album.title' <<< "$html")) 
 
-#VA CHECK
 #--------
 if [ "$maxItems" -ge 3 ];then
 artistNameA=$(jq -r '.items[1].artist.name' <<< "$html")
