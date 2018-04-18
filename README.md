@@ -25,6 +25,7 @@ This software allows the user to produce exceptional album rips from the Tidal m
 * metaflac 
 * gsed
 * ffmpeg
+* jq
 
 
 # Instructions -
